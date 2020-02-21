@@ -253,7 +253,7 @@ func (b *Builder) Run(ctx context.Context, ui packer.Ui, hook packer.Hook) (pack
 				},
 				WinRMConfig: func(multistep.StateBag) (*communicator.WinRMConfig, error) {
 					return &communicator.WinRMConfig{
-						Username: b.config.UserName,
+						Username: b.config.userName,
 						Password: b.config.Comm.WinRMPassword,
 					}, nil
 				},
@@ -275,8 +275,8 @@ func (b *Builder) Run(ctx context.Context, ui packer.Ui, hook packer.Hook) (pack
 	}
 
 	if b.config.PackerDebug {
-		ui.Message(fmt.Sprintf("temp admin user: '%s'", b.config.UserName))
-		ui.Message(fmt.Sprintf("temp admin password: '%s'", b.config.Password))
+		ui.Message(fmt.Sprintf("temp admin user: '%s'", b.config.userName))
+		ui.Message(fmt.Sprintf("temp admin password: '%s'", b.config.password))
 
 		if len(b.config.Comm.SSHPrivateKey) != 0 {
 			debugKeyPath := fmt.Sprintf("%s-%s.pem", b.config.PackerBuildName, b.config.tmpComputeName)

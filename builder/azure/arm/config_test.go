@@ -34,8 +34,8 @@ func TestConfigShouldProvideReasonableDefaultValues(t *testing.T) {
 		t.Fatalf(" errors: %s\n", err)
 	}
 
-	if c.UserName == "" {
-		t.Error("Expected 'UserName' to be populated, but it was empty!")
+	if c.userName == "" {
+		t.Error("Expected 'userName' to be populated, but it was empty!")
 	}
 
 	if c.VMSize == "" {
@@ -71,16 +71,16 @@ func TestConfigShouldBeAbleToOverrideDefaultedValues(t *testing.T) {
 		t.Fatalf("newConfig failed: %s", err)
 	}
 
-	if c.Password != "override_password" {
-		t.Errorf("Expected 'Password' to be set to 'override_password', but found %q!", c.Password)
+	if c.password != "override_password" {
+		t.Errorf("Expected 'password' to be set to 'override_password', but found %q!", c.password)
 	}
 
 	if c.Comm.SSHPassword != "override_password" {
 		t.Errorf("Expected 'c.Comm.SSHPassword' to be set to 'override_password', but found %q!", c.Comm.SSHPassword)
 	}
 
-	if c.UserName != "override_username" {
-		t.Errorf("Expected 'UserName' to be set to 'override_username', but found %q!", c.UserName)
+	if c.userName != "override_username" {
+		t.Errorf("Expected 'userName' to be set to 'override_username', but found %q!", c.userName)
 	}
 
 	if c.Comm.SSHUsername != "override_username" {
@@ -507,8 +507,8 @@ func TestSystemShouldDefineRuntimeValues(t *testing.T) {
 	var c Config
 	c.Prepare(getArmBuilderConfiguration(), getPackerConfiguration())
 
-	if c.Password == "" {
-		t.Errorf("Expected Password to not be empty, but it was '%s'!", c.Password)
+	if c.password == "" {
+		t.Errorf("Expected password to not be empty, but it was '%s'!", c.password)
 	}
 
 	if c.tmpComputeName == "" {

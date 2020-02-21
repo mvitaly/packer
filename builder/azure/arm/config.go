@@ -371,8 +371,8 @@ type Config struct {
 	AllowedInboundIpAddresses []string `mapstructure:"allowed_inbound_ip_addresses"`
 
 	// Runtime Values
-	UserName               string
-	Password               string
+	userName               string
+	password               string
 	tmpAdminPassword       string
 	tmpCertificatePassword string
 	tmpResourceGroupName   string
@@ -639,17 +639,17 @@ func setUserNamePassword(c *Config) {
 		c.Comm.SSHUsername = DefaultUserName
 	}
 
-	c.UserName = c.Comm.SSHUsername
+	c.userName = c.Comm.SSHUsername
 
 	if c.Comm.SSHPassword != "" {
-		c.Password = c.Comm.SSHPassword
+		c.password = c.Comm.SSHPassword
 		return
 	}
 
 	// Configure password settings using Azure generated credentials
-	c.Password = c.tmpAdminPassword
+	c.password = c.tmpAdminPassword
 	if c.Comm.WinRMPassword == "" {
-		c.Comm.WinRMPassword = c.Password
+		c.Comm.WinRMPassword = c.password
 	}
 }
 

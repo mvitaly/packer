@@ -31,8 +31,8 @@ func GetKeyVaultDeployment(config *Config) (*resources.Deployment, error) {
 
 func GetVirtualMachineDeployment(config *Config) (*resources.Deployment, error) {
 	params := &template.TemplateParameters{
-		AdminUsername:              &template.TemplateParameter{Value: config.UserName},
-		AdminPassword:              &template.TemplateParameter{Value: config.Password},
+		AdminUsername:              &template.TemplateParameter{Value: config.userName},
+		AdminPassword:              &template.TemplateParameter{Value: config.password},
 		DnsNameForPublicIP:         &template.TemplateParameter{Value: config.tmpComputeName},
 		NicName:                    &template.TemplateParameter{Value: config.tmpNicName},
 		OSDiskName:                 &template.TemplateParameter{Value: config.tmpOSDiskName},

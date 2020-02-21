@@ -76,8 +76,8 @@ func TestVirtualMachineDeployment02(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	if params.AdminUsername.Value != c.UserName {
-		t.Errorf("Expected template parameter 'AdminUsername' to be %s, but got %s.", params.AdminUsername.Value, c.UserName)
+	if params.AdminUsername.Value != c.userName {
+		t.Errorf("Expected template parameter 'AdminUsername' to be %s, but got %s.", params.AdminUsername.Value, c.userName)
 	}
 	if params.AdminPassword.Value != c.tmpAdminPassword {
 		t.Errorf("Expected template parameter 'AdminPassword' to be %s, but got %s.", params.AdminPassword.Value, c.tmpAdminPassword)
